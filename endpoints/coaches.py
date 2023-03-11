@@ -1,7 +1,6 @@
 from app import app
 from flask import request, make_response, jsonify
 from dbhelpers import run_statement
-import json
 import uuid
 
 #endpoints for coaches go here
@@ -21,3 +20,8 @@ def coach_login():
         return make_response(jsonify("You are logged in Coach"), 201)
     else:
         return make_response(jsonify("Try again Coach"), 500)
+    
+
+
+    
+ 
