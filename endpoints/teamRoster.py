@@ -6,9 +6,9 @@ from dbhelpers import run_statement
 
 @app.get('/api/roster')
 def team_roster():
-    team_id = request.json.get('team_id')
+    team_id = request.args.get('team_id')
     result = run_statement('CALL list_players (?)', [team_id])
-    keys = ["first_name", "last_name", "postion_played"]
+    keys = ["first_name", "last_name", "position_played"]
     response = []
     if (type(result) == list):
         for first_name in result:
