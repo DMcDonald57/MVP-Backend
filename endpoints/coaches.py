@@ -17,9 +17,9 @@ def coach_login():
         return make_response(jsonify("Password does not match"),401)
     result = run_statement('CALL coach_login (?,?)', [coach_id, token])
     if result == None:
-        return make_response(jsonify("You are logged in Coach"), 201)
+        return make_response(("You are logged in Coach"), 201)
     else:
-        return make_response(jsonify("Try again Coach"), 500)
+        return make_response(("Try again Coach"), 500)
     
 
 
