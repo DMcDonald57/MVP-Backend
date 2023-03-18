@@ -19,8 +19,8 @@ def team_roster():
     
 @app.get('/api/rosterupdate')
 def teamFullroster():
-    coach_id = request.json.get('coach_id')
-    result = run_statement('CALL fullPlayerList (?)', [coach_id])
+    team_id = request.json.get('team_id')
+    result = run_statement('CALL fullPlayerList (?)', [team_id])
     keys = ["first_name", "last_name", "phone_num", "email","position_played"]
     response = []
     if (type(result) == list):
