@@ -3,7 +3,7 @@ from flask import request, make_response, jsonify
 from dbhelpers import run_statement
 
 
-@app.get('/api/standings')
+@app.get('/api/teamstandings')
 def league_standings():
     result = run_statement('CALL league_standings')
     keys = ["Team", "Win", "Loss"]
@@ -13,4 +13,4 @@ def league_standings():
             response.append(dict(zip(keys,Team)))
         return make_response(jsonify(response), 200)
     else:
-        return make_response(jsonify(result),500)
+        return make_response(jsonify(result), 500)
